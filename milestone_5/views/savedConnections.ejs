@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UNCC HTML</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+
+  <%- include ('partials/header.ejs') %>
+  <%- include ('partials/upnav.ejs') %>
+
+  <div class="middle4">
+    <h2 class="riders">Rider's Connections</h2>
+    <% if(data && !data.length) {%>
+    <p>Right now there is no connection</p>
+    <% } %>
+    <table class="tables">
+      <tr>
+
+        <th class="saved ">Conection</th>
+        <th class="saved">Category</th>
+        <th class="saved">Going?</th>
+        <th></th>
+      </tr>
+
+      <% for(let index = 0; index<data.length;index++) {%>
+      <tr>
+
+        <td><%= data[index].diflev %></td>
+        <td><%= data[index].heading %></td>
+        <td><%= data[index]['RSVP'] %></td>
+
+        <td>
+
+          <form method="post">
+            <button class="button1" onclick="window.location.href='/connection/<%= data[index].ID %>'"
+              type="button">Update</button>
+
+            <input type="hidden" name="action" value="delete" />
+
+            <button class="button2"
+              onclick="window.location.href='/connection/savedconnections?ID=<%=data[index].ID %>&delete=true'"
+              type="button">Delete</button>
+          </form>
+        </td>
+
+      </tr>
+      <% } %>
+    </table>
+
+  </div>
+
+
+  <%- include ('partials/footer.ejs') %>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UNCC HTML</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+
+<body>
+  <%- include ('partials/header.ejs') %>
+  <%- include ('partials/upnav.ejs') %>
+  <div class="newmiddle">
+    <form class="newconnect"  method="POST" action="newConnection">
+      <%   if(error){
+        error.forEach(function(item){%>
+            <p><%=item.msg %></p>
+            <%});} %>
+      <label for="heading">Heading: </label>
+      <input type="text" id="heading" name="heading"><br><br>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="diflev">Difficulty: </label>
+      <input type="text" id="diflev" name="diflev"><br><br>
+      <label for="details">Details: </label>
+      <input type="text" id="details" name="details"><br><br>
+      <label for="date">When: </label>
+      <input type="date" id="date" name="date"><br>
+      <label for="time">Time: </label>
+      <input type="time" id="time" name="time"><br>
+      <label for="loc">Where: </label>
+      <input type="text" id="loc" name="loc"><br><br>
+      <input type="submit" name="Submit"/>
+    </form>
+   
+
+  </div>
+  <%- include ('partials/footer.ejs') %>
+
+
+
+</body>
+
+</html>

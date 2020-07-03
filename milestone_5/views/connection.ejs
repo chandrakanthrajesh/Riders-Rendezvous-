@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UNCC HTML</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+  <%- include ('partials/header.ejs') %>
+  <%- include ('partials/upnav.ejs') %>
+  <div class="middle3">
+    <h3 class="white"><%= data.diflev %></h3>
+
+    <img class="inline" src='<%- data.imgURL %>' alt="rider profile">
+    <div class="inline1">
+      <p class="margin">Hosted by <%= data.name %></p>
+      <p class="margin"><%= data.date %></p>
+      <p class="margin"><%= data.time %></p>
+      <p class="margin"><%= data.loc %></p>
+
+    </div>
+
+    <div class="inline2">
+      <%if(user){%>
+      <button onclick="window.location.href='savedconnections?ID=<%=data.ID %>&RSVP=Yes'" class="button1"
+        type="button">Yes</button>
+      <button onclick="window.location.href='savedconnections?ID=<%=data.ID %>&RSVP=No'" class="button2"
+        type="button">No</button>
+      <button onclick="window.location.href='savedconnections?ID=<%=data.ID %>&RSVP=Maybe'" class="button3"
+        type="button">Maybe</button>
+      <% }else if(!user){%>
+      <button onclick="window.location.href='/login'" class="button1" type="button">Yes</button>
+      <button onclick="window.location.href='/login'" class="button2" type="button">No</button>
+      <button onclick="window.location.href='/login'" class="button3" type="button">Maybe</button>
+
+      <%}else{%>
+      <button onclick="window.location.href='/connection/<%=data.ID %>'" class="button1" type="button">Yes</button>
+      <button onclick="window.location.href='/connection/<%=data.ID %>'" class="button2" type="button">No</button>
+      <button onclick="window.location.href='/connection/<%=data.ID %>'" class="button3"
+        type="button">Maybe</button>
+      <%}%>
+      <h3 class="white">Details</h3>
+      <p class="margin">Motor cycle balancing and Manual Transmission training</p>
+      <p class="margin">Bikers safety gears mandatory</p>
+      
+    
+  </div>
+  </div>
+  <%- include ('partials/footer.ejs') %>
+
+
+</body>
+
+</html>

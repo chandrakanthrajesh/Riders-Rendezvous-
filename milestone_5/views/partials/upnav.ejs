@@ -1,0 +1,22 @@
+<% if(user){%>
+  
+    <ul id="rightnav"> 
+    <li><a href="#">Welcome Norm!</a></li>
+    <li><a href="/newConnection">START A NEW CONNECTION</a></li>
+    <li><a href="/connections">All connections</a></li>
+    <li><a href="/connection/savedconnections">My connections</a></li>
+    <li ><a href="/logout">CK, Logout.</a></li>
+
+    <% }else{%>
+    <ul id="rightnav"> 
+    <li><a href="/login">Login</a></li> 
+    <li><a href="/login">SIGN UP</a></li>
+    <li><a href="/connections">All connections</a></li>
+    <li><a href="/newConnection">START A NEW CONNECTION</a></li>
+    <%}%>
+</ul>
+
+
+
+
+

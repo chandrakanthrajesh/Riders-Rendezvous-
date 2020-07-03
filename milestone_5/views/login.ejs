@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UNCC HTML</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+<body>
+  <%- include ('partials/header.ejs') %>
+  <%- include ('partials/upnav.ejs') %>
+  <% if (errors) { %>
+		<% errors.forEach(error => { %>
+			<section class="error">
+				<p>
+					<%= error.msg %> 
+				</p>
+			</section>
+		<% }) %>
+	<% } %>
+  
+  
+  <div class="middlecontainer">
+    <div id="login_form">
+        <form name='f1' method="post" action="/login" id='f1' >
+          <label for='username'>USER NAME</label>
+          <input type="text" id="username" name="username"  ><br><br>
+          <label for='password'>PASSWORD </label>
+          <input type="password" name="password" id="password" ><br><br>
+          <input type='submit' value='login' formaction="/login" class="button1">
+      </form>
+    
+    </div>
+    
+
+  
+    
+  </div>
+  
+  <%- include ('partials/footer.ejs') %>
+  
+  
+</body>
+</html>
